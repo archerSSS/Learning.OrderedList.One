@@ -29,11 +29,23 @@ namespace AlgorithmsDataStructures
             _ascending = asc;
         }
 
+
+        // Доработать сравнение строк
+        //
         public int Compare(T v1, T v2)
         {
             int result = 0;
             if (typeof(T) == typeof(String))
             {
+                char[] a1 = v1.ToString().ToCharArray();
+                char[] a2 = v2.ToString().ToCharArray();
+                for (int i = 0; i < (a1.Length > a2.Length ? a1.Length : a2.Length); i++)
+                {
+                    if (i < a2.Length) return 1;
+                    else if (i > a1.Length) return -1;
+                    if (a1[i] > a2[i]) return 1;
+                    else if (a1[i] < a2[i]) return -1;
+                }
                 // версия для лексикографического сравнения строк
             }
             else
@@ -84,7 +96,6 @@ namespace AlgorithmsDataStructures
                         new_node.next = node;
                         new_node.prev = node.prev;
                         node.prev = new_node;
-
                     }
                     return;
                 }

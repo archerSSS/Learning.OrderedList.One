@@ -10,7 +10,10 @@ namespace AlgorithmsDataStructures
     {
         public static void Main(String[] args)
         {
+            char g = 's';
+            char g1 = 'h';
 
+            bool b = g > g1;
         }
     }
 }

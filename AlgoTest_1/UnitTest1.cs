@@ -8,7 +8,7 @@ namespace AlgoTest_1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestAddAsc_1()
+        public void TestAddIntegerAsc_1()
         {
             OrderedList<int> ord = new OrderedList<int>(true);
 
@@ -29,7 +29,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddAsc_2()
+        public void TestAddIntegerAsc_2()
         {
             OrderedList<int> ord = new OrderedList<int>(true);
 
@@ -46,7 +46,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddAsc_3()
+        public void TestAddIntegerAsc_3()
         {
             OrderedList<int> ord = new OrderedList<int>(true);
 
@@ -63,7 +63,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddAsc_4()
+        public void TestAddIntegerAsc_4()
         {
             OrderedList<int> ord = new OrderedList<int>(true);
 
@@ -80,7 +80,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddDes_3()
+        public void TestAddIntegerDes_3()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -97,7 +97,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddDes_4()
+        public void TestAddIntegerDes_4()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -114,7 +114,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddDes_5()
+        public void TestAddIntegerDes_5()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -131,7 +131,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestAddDes_6()
+        public void TestAddIntegerDes_6()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -146,6 +146,29 @@ namespace AlgoTest_1
             Assert.AreEqual(ord.head.value, 14);
             Assert.AreEqual(ord.head.next.value, 13);
             Assert.AreEqual(ord.head.next.prev.value, 14);
+        }
+
+
+        [TestMethod]
+        public void TestAddStringAsc_1()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+
+            ord.Add("Ace");
+            ord.Add("Button");
+            ord.Add("Close");
+        }
+
+
+        [TestMethod]
+        public void TestAddStringAsc_2()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+
+            ord.Add("Aces");
+            ord.Add("Ace");
+            ord.Add("Crow");
+            ord.Add("Acer");
         }
     }
 }
