@@ -39,10 +39,10 @@ namespace AlgorithmsDataStructures
             {
                 char[] a1 = v1.ToString().ToCharArray();
                 char[] a2 = v2.ToString().ToCharArray();
-                for (int i = 0; i < (a1.Length > a2.Length ? a1.Length : a2.Length); i++)
+                for (int i = 0; i <= (a1.Length > a2.Length ? a1.Length : a2.Length); i++)
                 {
-                    if (i < a2.Length) return 1;
-                    else if (i > a1.Length) return -1;
+                    if (i >= a2.Length) return 1;
+                    else if (i >= a1.Length) return -1;
                     if (a1[i] > a2[i]) return 1;
                     else if (a1[i] < a2[i]) return -1;
                 }
@@ -59,8 +59,6 @@ namespace AlgorithmsDataStructures
                     if (n1 > n2) result = 1;
                     else if (n1 < n2) result = -1;
                 }
-                // if (v1.GetHashCode() > v2.GetHashCode()) result = 1;
-                // else if (v1.GetHashCode() < v2.GetHashCode()) result = -1;
                 // универсальное сравнение
             }
 
@@ -72,6 +70,7 @@ namespace AlgorithmsDataStructures
 
         public void Add(T value)
         {
+            if (value == null) { return; }
             if (head == null) { head = new Node<T>(value); tail = head; return; }
             Node<T> node = head;
             Node<T> new_node = new Node<T>(value);
@@ -110,6 +109,15 @@ namespace AlgorithmsDataStructures
 
         public Node<T> Find(T val)
         {
+            if (val != null)
+            {
+                Node<T> node = head;
+                while (node != null)
+                {
+                    if (node.value.Equals(val)) return node;
+                    node = node.next;
+                }
+            }
             return null; // здесь будет ваш код
         }
 
@@ -151,11 +159,24 @@ namespace AlgorithmsDataStructures
         public void Clear(bool asc)
         {
             _ascending = asc;
+            head = null;
+            tail = null;
             // здесь будет ваш код
         }
 
         public int Count()
         {
+            if (head != null)
+            {
+                Node<T> node = head;
+                int count = 0;
+                while (node != null)
+                {
+                    count++;
+                    node = node.next;
+                }
+                return count;
+            }
             return 0; // здесь будет ваш код подсчёта количества элементов в списке
         }
 
