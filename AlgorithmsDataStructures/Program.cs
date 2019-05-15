@@ -10,10 +10,11 @@ namespace AlgorithmsDataStructures
     {
         public static void Main(String[] args)
         {
-            char g = '!';
-            char g1 = ' ';
-
-            bool b = g > g1;
+            
+            String str1 = "a o";
+            String str2 = "ao";
+            int i = str1.CompareTo(str2);
+            
         }
     }
 }

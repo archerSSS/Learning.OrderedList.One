@@ -257,13 +257,32 @@ namespace AlgoTest_1
         {
             OrderedList<string> ord = new OrderedList<string>(true);
 
-            ord.Add("Car");
+            ord.Add(" Car ");
             ord.Add("Point");
             ord.Add("Car");
+            ord.Add(" Point ");
 
-            Assert.AreEqual("Car", ord.head.value);
+            Assert.AreEqual(" Car ", ord.head.value);
             Assert.AreEqual("Car", ord.head.next.value);
             Assert.AreEqual("Point", ord.head.next.next.value);
+            Assert.AreEqual(" Point ", ord.head.next.next.next.value);
+        }
+
+
+        [TestMethod]
+        public void TestAddStringAsc_8()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+            
+            ord.Add("  Peace of cake  ");
+            ord.Add("Peaceofcake");
+            ord.Add("Peace of cake");
+            
+
+            
+            Assert.AreEqual("  Peace of cake  ", ord.head.value);
+            Assert.AreEqual("Peace of cake", ord.head.next.value);
+            Assert.AreEqual("Peaceofcake", ord.head.next.next.value);
         }
 
 
@@ -452,6 +471,89 @@ namespace AlgoTest_1
             ord.Delete(1);
 
             Assert.AreEqual(0, ord.Count());
+        }
+
+
+        [TestMethod]
+        public void TestFindAsc_1()
+        {
+            OrderedList<int> ord = new OrderedList<int>(true);
+
+            ord.Add(3);
+            ord.Add(2);
+            ord.Add(1);
+
+            Assert.AreEqual(2, ord.Find(2).value);
+        }
+
+
+        [TestMethod]
+        public void TestFindAsc_2()
+        {
+            OrderedList<int> ord = new OrderedList<int>(true);
+
+            ord.Add(5);
+            ord.Add(4);
+            ord.Add(2);
+            ord.Add(1);
+
+            Assert.AreEqual(4, ord.Find(4).value);
+        }
+
+
+        [TestMethod]
+        public void TestFindAsc_3()
+        {
+            OrderedList<int> ord = new OrderedList<int>(true);
+
+            ord.Add(5);
+            ord.Add(4);
+            ord.Add(2);
+            ord.Add(1);
+
+            Assert.AreEqual(null, ord.Find(3));
+        }
+
+
+        [TestMethod]
+        public void TestFindAsc_4()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+            
+            ord.Add("Crab");
+            ord.Add("Raccoon");
+            ord.Add("Cat");
+            ord.Add("Fat man");
+
+            Assert.AreEqual("Cat", ord.Find("Cat").value);
+        }
+
+
+        [TestMethod]
+        public void TestFindAsc_5()
+        {
+            OrderedList<int> ord = new OrderedList<int>(false);
+
+            ord.Add(5);
+            ord.Add(4);
+            ord.Add(2);
+            ord.Add(1);
+
+            Assert.AreEqual(null, ord.Find(3));
+        }
+
+
+        [TestMethod]
+        public void TestFindAsc_6()
+        {
+            OrderedList<int> ord = new OrderedList<int>(false);
+
+            ord.Add(5);
+            ord.Add(4);
+            ord.Add(2);
+            ord.Add(1);
+
+            Assert.AreEqual(1, ord.Find(1).value);
         }
     }
 }
