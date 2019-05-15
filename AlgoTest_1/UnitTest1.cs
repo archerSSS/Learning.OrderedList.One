@@ -17,14 +17,14 @@ namespace AlgoTest_1
             ord.Add(3);
             ord.Add(4);
 
-            Assert.AreEqual(ord.head.value, 1);
-            Assert.AreEqual(ord.head.next.value, 2);
-            Assert.AreEqual(ord.head.next.next.value, 3);
-            Assert.AreEqual(ord.head.next.next.next.value, 4);
-            Assert.AreEqual(ord.head.next.next.next.next, null);
-            Assert.AreEqual(ord.tail.value, 4);
-            Assert.AreEqual(ord.tail.prev.value, 3);
-            Assert.AreEqual(ord.tail.prev.prev.prev.prev, null);
+            Assert.AreEqual(1, ord.head.value);
+            Assert.AreEqual(2, ord.head.next.value);
+            Assert.AreEqual(3, ord.head.next.next.value);
+            Assert.AreEqual(4, ord.head.next.next.next.value);
+            Assert.AreEqual(null, ord.head.next.next.next.next);
+            Assert.AreEqual(4, ord.tail.value);
+            Assert.AreEqual(3, ord.tail.prev.value);
+            Assert.AreEqual(null, ord.tail.prev.prev.prev.prev);
         }
 
 
@@ -38,10 +38,11 @@ namespace AlgoTest_1
             ord.Add(3);
             ord.Add(14);
 
-            Assert.AreEqual(ord.tail.value, 22);
-            Assert.AreEqual(ord.tail.prev.value, 14);
-            Assert.AreEqual(ord.head.value, 1);
-            Assert.AreEqual(ord.head.next.value, 3);
+            Assert.AreEqual(22, ord.tail.value);
+            Assert.AreEqual(14, ord.tail.prev.value);
+            Assert.AreEqual(1, ord.head.value);
+            Assert.AreEqual(3, ord.head.next.value);
+            Assert.AreEqual(14, ord.head.next.next.value);
         }
 
 
@@ -55,10 +56,10 @@ namespace AlgoTest_1
             ord.Add(2);
             ord.Add(1);
 
-            Assert.AreEqual(ord.tail.value, 4);
-            Assert.AreEqual(ord.tail.prev.value, 3);
-            Assert.AreEqual(ord.head.value, 1);
-            Assert.AreEqual(ord.head.next.value, 2);
+            Assert.AreEqual(4, ord.tail.value);
+            Assert.AreEqual(3, ord.tail.prev.value);
+            Assert.AreEqual(1, ord.head.value);
+            Assert.AreEqual(2, ord.head.next.value);
         }
 
 
@@ -72,15 +73,15 @@ namespace AlgoTest_1
             ord.Add(-2);
             ord.Add(-3);
 
-            Assert.AreEqual(ord.tail.value, 0);
-            Assert.AreEqual(ord.tail.prev.value, -1);
-            Assert.AreEqual(ord.head.value, -3);
-            Assert.AreEqual(ord.head.next.value, -2);
+            Assert.AreEqual(0, ord.tail.value);
+            Assert.AreEqual(-1, ord.tail.prev.value);
+            Assert.AreEqual(-3, ord.head.value);
+            Assert.AreEqual(-2, ord.head.next.value);
         }
 
 
         [TestMethod]
-        public void TestAddIntegerDes_3()
+        public void TestAddIntegerDes_1()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -89,15 +90,15 @@ namespace AlgoTest_1
             ord.Add(2);
             ord.Add(1);
 
-            Assert.AreEqual(ord.tail.value, 1);
-            Assert.AreEqual(ord.tail.prev.value, 2);
-            Assert.AreEqual(ord.head.value, 4);
-            Assert.AreEqual(ord.head.next.value, 3);
+            Assert.AreEqual(1, ord.tail.value);
+            Assert.AreEqual(2, ord.tail.prev.value);
+            Assert.AreEqual(4, ord.head.value);
+            Assert.AreEqual(3, ord.head.next.value);
         }
 
 
         [TestMethod]
-        public void TestAddIntegerDes_4()
+        public void TestAddIntegerDes_2()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -106,15 +107,15 @@ namespace AlgoTest_1
             ord.Add(-2);
             ord.Add(-3);
 
-            Assert.AreEqual(ord.tail.value, -3);
-            Assert.AreEqual(ord.tail.prev.value, -2);
-            Assert.AreEqual(ord.head.value, 0);
-            Assert.AreEqual(ord.head.next.value, -1);
+            Assert.AreEqual(-3, ord.tail.value);
+            Assert.AreEqual(-2, ord.tail.prev.value);
+            Assert.AreEqual(0, ord.head.value);
+            Assert.AreEqual(-1, ord.head.next.value);
         }
 
 
         [TestMethod]
-        public void TestAddIntegerDes_5()
+        public void TestAddIntegerDes_3()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -123,15 +124,15 @@ namespace AlgoTest_1
             ord.Add(3);
             ord.Add(14);
 
-            Assert.AreEqual(ord.head.value, 22);
-            Assert.AreEqual(ord.head.next.value, 14);
-            Assert.AreEqual(ord.tail.value, 1);
-            Assert.AreEqual(ord.tail.prev.value, 3);
+            Assert.AreEqual(22, ord.head.value);
+            Assert.AreEqual(14, ord.head.next.value);
+            Assert.AreEqual(1, ord.tail.value);
+            Assert.AreEqual(3, ord.tail.prev.value);
         }
 
 
         [TestMethod]
-        public void TestAddIntegerDes_6()
+        public void TestAddIntegerDes_4()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -140,12 +141,12 @@ namespace AlgoTest_1
             ord.Add(3);
             ord.Add(14);
 
-            Assert.AreEqual(ord.tail.value, 3);
-            Assert.AreEqual(ord.tail.prev.value, 5);
-            Assert.AreEqual(ord.tail.prev.next.value, 3);
-            Assert.AreEqual(ord.head.value, 14);
-            Assert.AreEqual(ord.head.next.value, 13);
-            Assert.AreEqual(ord.head.next.prev.value, 14);
+            Assert.AreEqual(3, ord.tail.value);
+            Assert.AreEqual(5, ord.tail.prev.value);
+            Assert.AreEqual(3, ord.tail.prev.next.value);
+            Assert.AreEqual(14, ord.head.value);
+            Assert.AreEqual(13, ord.head.next.value);
+            Assert.AreEqual(14, ord.head.next.prev.value);
         }
 
 
@@ -449,6 +450,61 @@ namespace AlgoTest_1
 
 
         [TestMethod]
+        public void TestDeleteStringAsc_1()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+
+            ord.Delete("Brick");
+            
+            ord.Delete(null);
+
+            ord.Add("Brick");
+
+            Assert.AreEqual("Brick", ord.head.value);
+            Assert.AreEqual("Brick", ord.tail.value);
+
+            ord.Delete("Brick");
+
+            Assert.AreEqual(null, ord.head);
+            Assert.AreEqual(null, ord.tail);
+        }
+
+
+        [TestMethod]
+        public void TestDeleteStringAsc_2()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+
+            ord.Add(" Ground ");
+            ord.Delete("Ground");
+
+            Assert.AreEqual(" Ground ", ord.head.value);
+
+            ord.Delete(" Ground ");
+
+            Assert.AreEqual(null, ord.head);
+        }
+
+
+        [TestMethod]
+        public void TestDeleteStringAsc_3()
+        {
+            OrderedList<string> ord = new OrderedList<string>(true);
+
+            ord.Add("Fat32");
+            ord.Add("Fat32");
+            ord.Add("Fat");
+            ord.Add("Fat");
+
+            Assert.AreEqual(4, ord.Count());
+
+            ord.Delete("Fat");
+
+            Assert.AreEqual(3, ord.Count());
+        }
+
+
+        [TestMethod]
         public void TestCountAsc_1()
         {
             OrderedList<int> ord = new OrderedList<int>(true);
@@ -514,9 +570,9 @@ namespace AlgoTest_1
             Assert.AreEqual(null, ord.Find(3));
         }
 
-
+        
         [TestMethod]
-        public void TestFindAsc_4()
+        public void TestFindAsc_5()
         {
             OrderedList<string> ord = new OrderedList<string>(true);
             
@@ -530,7 +586,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestFindAsc_5()
+        public void TestFindDes_1()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -544,7 +600,7 @@ namespace AlgoTest_1
 
 
         [TestMethod]
-        public void TestFindAsc_6()
+        public void TestFindDes_2()
         {
             OrderedList<int> ord = new OrderedList<int>(false);
 
@@ -554,6 +610,12 @@ namespace AlgoTest_1
             ord.Add(1);
 
             Assert.AreEqual(1, ord.Find(1).value);
+            Assert.AreEqual(2, ord.Find(2).value);
+            Assert.AreEqual(null, ord.Find(3));
+            Assert.AreEqual(4, ord.Find(4).value);
+            Assert.AreEqual(5, ord.Find(5).value);
         }
     }
 }
+
+

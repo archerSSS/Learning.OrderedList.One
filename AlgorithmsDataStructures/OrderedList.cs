@@ -29,32 +29,21 @@ namespace AlgorithmsDataStructures
             _ascending = asc;
         }
 
-
-        // Доработать сравнение строк
-        //
+        
         public int Compare(T v1, T v2)
         {
             int result = 0;
             if (typeof(T) == typeof(String)) result = DeleteEdgeSpaces(v1.ToString()).CompareTo(v2.ToString());
-            // версия для лексикографического сравнения строк
             else
             {
-                int n1 = 0;
-                int n2 = 0;
                 if (v1.GetType() == typeof(int) && v2.GetType() == typeof(int))
                 {
-                    n1 = Convert.ToInt32(v1);
-                    n2 = Convert.ToInt32(v2);
-                    if (n1 > n2) result = 1;
-                    else if (n1 < n2) result = -1;
+                    if (Convert.ToInt32(v1) > Convert.ToInt32(v2)) result = 1;
+                    else if (Convert.ToInt32(v1) < Convert.ToInt32(v2)) result = -1;
                 }
-                // универсальное сравнение
             }
 
             return result;
-            // -1 если v1 < v2
-            // 0 если v1 == v2
-            // +1 если v1 > v2
         }
 
         public void Add(T value)
@@ -72,10 +61,9 @@ namespace AlgorithmsDataStructures
             {
                 if (Compare(value, node.value) == -asc)
                 {
-                    if (node.prev == null)
+                    if (node == head)
                     {
                         new_node.next = node;
-                        node.prev = new_node;
                         head = new_node;
                     }
                     else
@@ -83,8 +71,8 @@ namespace AlgorithmsDataStructures
                         node.prev.next = new_node;
                         new_node.next = node;
                         new_node.prev = node.prev;
-                        node.prev = new_node;
                     }
+                    node.prev = new_node;
                     return;
                 }
                 node = node.next;
@@ -92,8 +80,6 @@ namespace AlgorithmsDataStructures
             new_node.prev = tail;
             new_node.prev.next = new_node;
             tail = new_node;
-            // автоматическая вставка value 
-            //в нужную позицию
         }
 
         public Node<T> Find(T val)
@@ -111,7 +97,7 @@ namespace AlgorithmsDataStructures
                     node = node.next;
                 }
             }
-            return null; // здесь будет ваш код
+            return null;
         }
 
         public void Delete(T val)
@@ -122,7 +108,7 @@ namespace AlgorithmsDataStructures
             {
                 if (node.value.Equals(val))
                 {
-                    if (node == head && node == tail)
+                    if (head.next == null)
                     {
                         head = null;
                         tail = null;
@@ -142,11 +128,10 @@ namespace AlgorithmsDataStructures
                         node.prev.next = node.next;
                         node.next.prev = node.prev;
                     }
+                    return;
                 }
                 node = node.next;
             }
-
-            // здесь будет ваш код
         }
 
         public void Clear(bool asc)
@@ -154,7 +139,6 @@ namespace AlgorithmsDataStructures
             _ascending = asc;
             head = null;
             tail = null;
-            // здесь будет ваш код
         }
 
         public int Count()
@@ -170,11 +154,11 @@ namespace AlgorithmsDataStructures
                 }
                 return count;
             }
-            return 0; // здесь будет ваш код подсчёта количества элементов в списке
+            return 0;
         }
 
-        List<Node<T>> GetAll() // выдать все элементы упорядоченного 
-                               // списка в виде стандартного списка
+        List<Node<T>> GetAll()
+                              
         {
             List<Node<T>> r = new List<Node<T>>();
             Node<T> node = head;
